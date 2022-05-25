@@ -36,65 +36,66 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent[700],
-      body: GestureDetector(
-        onTap: (() {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return SignInScreen();
-              },
+      body: Center(
+        child: Column(
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.tiktok,
+              color: Colors.white,
+              size: 80,
             ),
-          );
-        }),
-        child: Center(
-          child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.tiktok,
+            Text(
+              'COOL MUSIC',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 300,
+            ),
+            Container(
+              height: 40,
+              width: 400,
+              decoration: BoxDecoration(
                 color: Colors.white,
-                size: 80,
+                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              Text(
-                'COOL MUSIC',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 300,
-              ),
-              Container(
-                child: Text(
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return SignInScreen();
+                    }),
+                  );
+                },
+                child: const Text(
                   'Sign In',
                   style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.purple),
                 ),
-                height: 40,
-                width: 400,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                  color: Colors.white,
-                ),
               ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Text(
-                'Sign Up',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              )
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Text(
+              'Sign Up',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            )
+          ],
         ),
       ),
     );
